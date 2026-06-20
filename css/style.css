@@ -1,0 +1,529 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --olive: #3d4f2f;
+  --olive-dark: #2a3620;
+  --olive-light: #5a7045;
+  --red: #c41e3a;
+  --red-dark: #8b0000;
+  --gold: #d4af37;
+  --gold-light: #f0d060;
+  --white: #f5f0e8;
+  --black: #1a1a14;
+  --camo-1: #4a5d3a;
+  --camo-2: #3b3020;
+  --camo-3: #6b5b3a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'PT Serif', Georgia, serif;
+  background-color: var(--olive-dark);
+  color: var(--white);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Camouflage background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 50%, var(--camo-1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, var(--camo-3) 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 80%, var(--camo-2) 0%, transparent 45%),
+    linear-gradient(160deg, var(--olive-dark) 0%, var(--olive) 50%, var(--olive-dark) 100%);
+}
+
+/* Header */
+header {
+  background: linear-gradient(180deg, rgba(26, 26, 20, 0.97) 0%, rgba(42, 54, 32, 0.95) 100%);
+  border-bottom: 3px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.logo-star {
+  font-size: 2rem;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.logo-text {
+  font-family: 'Russo One', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.logo-text span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-family: 'Russo One', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
+}
+
+nav a:hover,
+nav a.active {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../images/evgeny-3.png') center/cover no-repeat;
+  filter: brightness(0.35) saturate(0.7);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 20, 0.6) 0%,
+    rgba(42, 54, 32, 0.4) 50%,
+    rgba(26, 26, 20, 0.85) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: 'Russo One', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  padding: 0.4rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.15;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 .highlight {
+  color: var(--gold-light);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-style: italic;
+  color: rgba(245, 240, 232, 0.9);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: 'Russo One', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--olive-dark);
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+  padding: 0.9rem 2.5rem;
+  border: 2px solid var(--gold-light);
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.hero-cta:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
+}
+
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section-title {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+
+.section-title::before,
+.section-title::after {
+  content: ' ★ ';
+  color: var(--red);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-style: italic;
+  color: rgba(245, 240, 232, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Intro block */
+.intro-block {
+  background: rgba(26, 26, 20, 0.7);
+  border: 2px solid var(--gold);
+  border-left: 6px solid var(--red);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.intro-block::before {
+  content: '⚔';
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  font-size: 2rem;
+  background: var(--olive-dark);
+  padding: 0 0.5rem;
+}
+
+.intro-block p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.intro-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Friendship block */
+.friendship-block {
+  background: rgba(26, 26, 20, 0.7);
+  border: 2px solid var(--olive-light);
+  border-right: 6px solid var(--gold);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.friendship-block::before {
+  content: '🤝';
+  position: absolute;
+  top: -1rem;
+  right: 2rem;
+  font-size: 2rem;
+  background: var(--olive-dark);
+  padding: 0 0.5rem;
+}
+
+.friendship-block p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.friendship-block p:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.friendship-motto {
+  font-family: 'Russo One', sans-serif;
+  font-size: 1rem;
+  color: var(--gold-light);
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--olive-light);
+  letter-spacing: 0.03em;
+  font-style: italic;
+}
+
+/* Photo cards */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.photo-card {
+  background: rgba(26, 26, 20, 0.85);
+  border: 2px solid var(--olive-light);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--gold);
+}
+
+.photo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red) 33%, var(--white) 33% 66%, var(--olive-light) 66%);
+  z-index: 1;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9);
+  transition: filter 0.3s;
+}
+
+.photo-card:hover img {
+  filter: saturate(1.1);
+}
+
+.photo-caption {
+  padding: 1.5rem;
+  border-top: 1px solid var(--olive-light);
+}
+
+.photo-caption h3 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 1rem;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.photo-caption p {
+  font-size: 0.95rem;
+  color: rgba(245, 240, 232, 0.85);
+  font-style: italic;
+}
+
+.photo-caption .rank {
+  display: inline-block;
+  font-family: 'Russo One', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+/* Values section */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.value-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(26, 26, 20, 0.6);
+  border: 1px solid var(--olive-light);
+  position: relative;
+}
+
+.value-item .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.value-item h3 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.value-item p {
+  font-size: 0.9rem;
+  color: rgba(245, 240, 232, 0.75);
+}
+
+/* Page header (inner pages) */
+.page-header {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  background: rgba(26, 26, 20, 0.8);
+  border-bottom: 3px solid var(--gold);
+}
+
+.page-header h1 {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-style: italic;
+  color: rgba(245, 240, 232, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Gallery full page */
+.gallery-full .photo-card img {
+  height: 400px;
+}
+
+.gallery-full .photo-grid {
+  gap: 2.5rem;
+}
+
+/* Quote banner */
+.quote-banner {
+  background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 100%);
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 0;
+  max-width: 100%;
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+}
+
+.quote-banner blockquote {
+  font-family: 'Russo One', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.4;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quote-banner cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'PT Serif', serif;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Footer */
+footer {
+  background: rgba(26, 26, 20, 0.95);
+  border-top: 3px solid var(--gold);
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+footer .footer-star {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: rgba(245, 240, 232, 0.6);
+}
+
+footer .motto {
+  font-family: 'Russo One', sans-serif;
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  .photo-card img {
+    height: 260px;
+  }
+
+  .intro-block {
+    padding: 1.5rem;
+  }
+}
