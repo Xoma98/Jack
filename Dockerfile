@@ -5,7 +5,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-COPY vite.config.js index.html gallery.html favicon.ico favicon.svg ./
+COPY vite.config.js index.html gallery.html ./
+COPY public/ public/
 COPY css/ css/
 COPY js/ js/
 COPY images/ images/

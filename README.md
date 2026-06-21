@@ -27,8 +27,7 @@ Jack/
 ├── css/style.css       # Все стили (Inter, CSS-переменные, адаптив)
 ├── js/main.js          # Мобильное меню (бургер)
 ├── images/             # Фото Евгения (evgeny-1.png … evgeny-8.png)
-├── favicon.ico
-├── favicon.svg
+├── public/             # Статика в корне сайта: favicon.ico, apple-touch-icon.png
 ├── vite.config.js      # Multi-page сборка: index.html + gallery.html
 ├── Dockerfile          # Прод: nginx + статика
 ├── nginx.conf          # Конфиг nginx для Docker
