@@ -225,7 +225,7 @@ img {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../images/evgeny-3.png') center/cover no-repeat;
+  background: url('../images/evgeny-1.png') center/cover no-repeat;
 }
 
 .hero-overlay {
